@@ -44,3 +44,10 @@ Then, the word-level loss is defined as the binary cross-entropy loss for words 
 ```math
 L = \sum_{i} \sum_{j} \hat{1}_{ij} \cdot log(A_{ij}) + (1 - \hat{1}_{ij}) \cdot log(1 - A_{ij})
 ```
+
+## UPDATE: Current Loss Landscape
+
+Currently, the loss drops off fast at the start, indicating the model gets stuck in some kind of degenerative weight assignment.
+Inferencing a saved checkpoint confirms this, as it always seems to output very similar results, with only the text encoder being
+meaningfully changed to cause the drop in loss. This can result from a high learning rate. Might also want to avoid finetuning
+the text encoder since we are already using a pretrained model for it, as opposed to GroupViT, which trains one from scratch.
