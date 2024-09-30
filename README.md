@@ -51,3 +51,5 @@ Currently, the loss drops off fast at the start, indicating the model gets stuck
 Inferencing a saved checkpoint confirms this, as it always seems to output very similar results, with only the text encoder being
 meaningfully changed to cause the drop in loss. This can result from a high learning rate. Might also want to avoid finetuning
 the text encoder since we are already using a pretrained model for it, as opposed to GroupViT, which trains one from scratch.
+
+![Loss Landscape](https://github.com/ProgrammerFahim/audio-segmenter/blob/main/loss_landscape.png)
